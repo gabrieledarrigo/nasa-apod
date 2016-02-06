@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Nasa } from './components/Nasa';
+import { NasaApod } from './components/NasaApod';
 
-ReactDOM.render(<Nasa/>, document.getElementById('main'));
+ReactDOM.render(<NasaApod />, document.getElementById('main'));

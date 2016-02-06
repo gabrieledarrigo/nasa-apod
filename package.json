@@ -7,6 +7,7 @@
     "events": "^1.1.0",
     "moment": "^2.10.6",
     "react": "^0.14.3",
+    "react-day-picker": "^1.2.0",
     "react-dom": "^0.14.3",
     "whatwg-fetch": "^0.10.1"
   },

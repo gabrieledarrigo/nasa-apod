@@ -1,0 +1,37 @@
+.nav-menu {
+    border-bottom: 1px solid #DEDEDE;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+
+    &__btn {
+        height: 45px;
+        width: 45px;
+        position: absolute;
+        right: 10px;
+        text-align: center;
+        top: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__list {
+        background-color: #FFFFFF;
+        border: 1px solid #EDEDED;
+        display: none;
+        height: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 10px;
+        position: fixed;
+        top: 40px;
+        width: 100%;
+        z-index: 2;
+
+        &.is--open {
+            display: block;
+        }
+    }
+}

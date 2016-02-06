@@ -68,7 +68,7 @@ gulp.task('cssmin', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('./src/scss/**/*.scss', ['sass']);
+    gulp.watch('./src/scss/**/*.scss', ['scss']);
     gulp.watch('./src/js/**/*.js', ['js']);
 });
 

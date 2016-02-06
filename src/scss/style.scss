@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Oxygen);
+@import "components/day-picker";
+@import "components/header";
+@import "components/logo";
+@import "components/nav-menu";
+@import "components/date-control";
 
 *,
 *:before,
@@ -12,72 +17,6 @@ body {
     padding: 0;
 }
 
-#header {
-    height: 45px;
-}
-
-.nav-menu {
-    border-bottom: 1px solid #dedede;
-    height: 45px;
-    line-height: 45px;
-    padding: 5px 17.5px;
-    
-    &__btn {
-        height: 45px;
-        width: 45px;
-        position: absolute;
-        right: 10px;
-        text-align: center;
-        top: 0;
-        
-        &:hover {
-            cursor: pointer;
-        }
-    }
-    
-    &__list {
-        background-color: #FFFFFF;
-        border: 1px solid #EDEDED;
-        box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3);
-        display: none;
-        list-style-type: none;
-        margin: 0;
-        padding: 35px 10px;
-        position: relative;
-        top: 40px;
-        z-index: 2;
-        
-        &.is--open {
-            display: block;
-        }
-    }
-}
-
-.date-control {   
-    &__input {
-        border-radius: 3px;
-        border: 1px solid #dedede;
-        display: block;
-        padding: 5px;
-        width: 100%;
-    }
-    
-    &__error {
-        color: red;
-        display: none;
-        font-size: 12px;
-        margin: 0;
-        
-        &.is--visible {
-            display: block;
-        }
-    }
-    
-    &__text {
-       display: block; 
-    }
-}
-
 .btn {
     border-radius: 3px;
     display: block;
@@ -86,17 +25,17 @@ body {
     padding: 0 7.5px;
     text-align: center;
     transition: all 0.3s;
-    
+
     &:hover {
         cursor: pointer;
     }
-    
+
     &--green {
         background-color: #30d156;
         border: 1px solid #1fb542;
         box-shadow: 0px 4px 0px 1px #1fb542, 0px 5px 10px rgba(0, 0, 0, 0.9);
         color: #FFFFFF;
-        
+
         &:active,
         &:focus {
             transform: scale(0.98, 0.9);
@@ -104,26 +43,49 @@ body {
     }
 }
 
-#content {
-    margin: 0 auto;
-    width: 80%;
-}
-
 .title {
-    font-size: 22px;
+    font-size: 18px;
+    margin: 17.5px 0 12px;
     
+    @media only screen and(min-width: 768) {
+        font-size: 20px;
+    }
+
     &--white {
         color: #FFFFFF;    
     }
 }
 
+.content {
+    padding: 0 10px;
+    width: 100%;
+
+    @media only screen and(min-width: 768px) {
+        
+    }
+
+    @media only screen and(min-width: 1024px) {
+
+    }
+
+    @media only screen and(min-width: 1200px) {
+
+    }
+}
+
 .picture {
     margin: 0;
-    padding: 20px;
+    padding: 0;
     width: 100%;
     
     .picture__content {
+        height: 100%;
         width: 100%;
+
+        > iframe {
+            height: auto;
+            width: 100%;
+        }
     }
     
     .picture__img {
@@ -133,9 +95,14 @@ body {
 }
 
 .description {
-    font-size: 16.5px;
-    line-height: 1.5em;
+    font-size: 15px;
+    line-height: 1.3em;
     
+    @media only screen and(min-width: 768) {
+        font-size: 15.5px;
+        line-height: 1.4em;
+    }
+
     &--white {
         color: #ffffff;
     }

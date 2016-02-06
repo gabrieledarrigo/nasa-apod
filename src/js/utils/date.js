@@ -1,14 +1,15 @@
 import moment from 'moment';
 
-const isValidDate = function(date) {
-    return moment(date).isValid();
-};
+const FORMAT = 'YYYY-MM-DD';
 
-const today = function() {
-    return moment().format('YYYY-MM-DD');
-};
+const isValidDate = date => moment(date).isValid();
 
-export default {
-	isValidDate,
-	today
-}
+const isSame = (d1, d2) => moment(d1).isSame(d2);
+
+const parse = date => moment(date).format(FORMAT);
+
+const today = () => moment().format(FORMAT);
+
+const now = () => new Date();
+
+export default { isValidDate, isSame, parse, today, now }
