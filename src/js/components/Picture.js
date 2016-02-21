@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const Picture = React.createClass({
+class Picture extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="content">
@@ -14,7 +18,7 @@ export const Picture = React.createClass({
                             {this.props.data.title}
                         </h4>
 
-                        <h5 className="description">
+                        <h5 className="explanation">
                             {this.props.data.explanation}
                         </h5>
                     </figcaption>
@@ -22,4 +26,6 @@ export const Picture = React.createClass({
             </div>
         );
     }
-});
+}
+
+export default Picture;
