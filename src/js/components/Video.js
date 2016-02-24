@@ -1,21 +1,33 @@
 import React from 'react';
 
-export const Video = React.createClass({
-	render() {
-		return (
-			<figure className="video">
-				<h4 className="title">
-					{ this.props.data.title }
-				</h4>
-			
-				<div className="picture__content">
-					<iframe width="960" height="540" src={ this.props.data.url } frameBorder="0" allowFullScreen=""></iframe>
-				</div>
+class Video extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-				<h5 className="description">
-					{ this.props.data.explanation }
-				</h5>
-			</figure>
-		);
-	}
-});
+    render() {
+        return (
+            <figure className="video">
+                <div className="picture__content">
+                    <iframe className="video__iframe" width="960" height="540"
+                            src={ this.props.data.url }
+                            frameBorder="0"
+                            allowFullScreen="true">
+                    </iframe>
+                </div>
+
+                <figcaption>
+                    <h4 className="title">
+                        {this.props.data.title}
+                    </h4>
+
+                    <h5 className="explanation">
+                        {this.props.data.explanation}
+                    </h5>
+                </figcaption>
+            </figure>
+        );
+    }
+}
+
+export default Video;

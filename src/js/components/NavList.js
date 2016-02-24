@@ -1,7 +1,11 @@
 import React from 'react';
 import { DateControl } from './DateControl';
 
-export const NavList = React.createClass({
+class NavList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <ul className={this.props.open ? 'nav-menu__list is--open' : 'nav-menu__list'}>
@@ -9,6 +13,12 @@ export const NavList = React.createClass({
                     <DateControl />
                 </li>
             </ul>
-        );    
+        );
     }
-});  
+}
+
+NavList.defaultProps = {
+    open: false
+};
+
+export default NavList;
