@@ -14,9 +14,10 @@ describe('NavListComponent', () => {
     });
 
     it('should be open / closed depending on the open props value', () => {
-        const component = TestUtils.renderIntoDocument(<NavList open="true"/>);
-        const node = ReactDOM.findDOMNode(component);
+        const open   = TestUtils.renderIntoDocument(<NavList open={ true } />);
+        const closed = TestUtils.renderIntoDocument(<NavList open={ false } />);
 
-        assert.equal(node.classList.contains('is--open'), true);
+        assert.equal((ReactDOM.findDOMNode(open)).classList.contains('is--open'), true);
+        assert.equal((ReactDOM.findDOMNode(closed)).classList.contains('is--open'), false);
     });
 });
