@@ -1,9 +1,9 @@
 import React from 'react';
 import nasa from '../services/nasa';
 import emitter from '../utils/event-emitter';
-import { Header } from './Header';
-import { Picture } from './Picture';
-import { Video } from './Video';
+import Header from './Header';
+import Picture from './Picture';
+import Video from './Video';
 
 export const NasaApod = React.createClass({
 	getInitialState() {

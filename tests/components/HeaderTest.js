@@ -18,15 +18,18 @@ describe('HeaderComponent', () => {
     });
 
     it('should render a header element', () => {
-
-
-
         const component = TestUtils.renderIntoDocument(<Header />);
         const node = ReactDOM.findDOMNode(component);
 
         assert.equal(node.getAttribute('id'), 'header');
+    });
 
-        console.log('here');
+    it('should invoke toggle method when receiving a date:change event', () => {
+        const component = TestUtils.renderIntoDocument(<Header />);
+        const node = ReactDOM.findDOMNode(component);
+
+        assert.equal(component.state.open, false);
         emitter.emit('date:change', new Date());
+        assert.equal(component.state.open, true);
     });
 });

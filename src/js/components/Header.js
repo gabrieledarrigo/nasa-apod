@@ -26,7 +26,7 @@ class Header extends React.Component {
                 <h1 className="logo"></h1>
 
                 <nav className="nav-menu">
-                    <NavBtn open={ this.state.open } toggle={ this.toggle } />
+                    <NavBtn open={ this.state.open } toggle={ this.toggle.bind(this) } />
                     <NavList open={ this.state.open } />
                 </nav>
             </header>

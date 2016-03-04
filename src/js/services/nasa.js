@@ -1,5 +1,5 @@
 import fetch from 'whatwg-fetch';
-import dateUtils from '../utils/date';
+import dateUtils from '../utils/date-utils';
 
 const key = '3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl';
 const url = 'https://api.nasa.gov/planetary/apod?hd=true&api_key=';

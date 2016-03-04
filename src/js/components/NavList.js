@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateControl } from './DateControl';
+import DateControl from './DateControl';
 
 class NavList extends React.Component {
     constructor(props) {
