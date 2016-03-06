@@ -2,7 +2,7 @@ import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import Picture from '../../src/js/components/Picture';
+import Picture from '../../src/apod/components/Picture';
 
 describe('PictureComponent', () => {
     it('should render a picture with a title and an explanation', () => {

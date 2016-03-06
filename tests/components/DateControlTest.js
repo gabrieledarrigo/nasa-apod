@@ -3,16 +3,16 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import emitter from '../../src/js/utils/event-emitter';
-import DateControl from '../../src/js/components/DateControl';
+import emitter from '../../src/apod/utils/event-emitter';
+import DateControl from '../../src/apod/components/DateControl';
 
 describe('DateControlComponent', () => {
     let sandbox, event, emitFn;
 
     beforeEach(() => {
+        event  = { type : 'click' };
         sandbox = sinon.sandbox.create();
         emitFn = sandbox.stub(emitter, 'emit', (e, d) => {});
-        event  = { type : 'click' };
     });
 
     afterEach(() => {
@@ -38,12 +38,14 @@ describe('DateControlComponent', () => {
         assert.equal(emitFn.calledWith('date:change'), true);
     });
 
-    //it('should disable all days that comes after today', () => {
-    //    const component = TestUtils.renderIntoDocument(<DateControl />);
-    //    const node = ReactDOM.findDOMNode(component);
-    //    const disabled = node.querySelectorAll('.DayPicker-Day--isDisabled')[0];
-    //
-    //    TestUtils.Simulate.click(disabled, event);
-    //
-    //});
+
+    it('should not emit the date:change event if the user click on a day that comes after today', () => {
+        const component = TestUtils.renderIntoDocument(<DateControl />);
+        const node = ReactDOM.findDOMNode(component);
+        const disabled = node.querySelectorAll('.DayPicker-Day--isDisabled')[0];
+
+        TestUtils.Simulate.click(disabled, event);
+        
+        assert.equal(emitFn.callCount, 0);
+    });
 });

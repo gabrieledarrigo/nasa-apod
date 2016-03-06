@@ -1,3 +1,5 @@
+import Immutable from 'immutable';
+
 const Media = Immutable.Record({
     title: '',
     url: '',

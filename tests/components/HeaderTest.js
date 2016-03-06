@@ -3,8 +3,8 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import emitter from '../../src/js/utils/event-emitter';
-import Header from '../../src/js/components/Header';
+import emitter from '../../src/apod/utils/event-emitter';
+import Header from '../../src/apod/components/Header';
 
 describe('HeaderComponent', () => {
     let sandbox;

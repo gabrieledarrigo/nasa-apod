@@ -2,7 +2,7 @@ import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import NavList from '../../src/js/components/NavList';
+import NavList from '../../src/apod/components/NavList';
 
 describe('NavListComponent', () => {
     it('should render an unordered list with one menu item', () => {

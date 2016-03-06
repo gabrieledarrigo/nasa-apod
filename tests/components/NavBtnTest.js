@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import NavBtn from '../../src/js/components/NavBtn';
+import NavBtn from '../../src/apod/components/NavBtn';
 
 describe('NavBtnComponent', () => {
     let sandbox;

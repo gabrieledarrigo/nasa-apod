@@ -2,7 +2,7 @@ import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import Video from '../../src/js/components/Video';
+import Video from '../../src/apod/components/Video';
 
 describe('VideoComponent', () => {
     it('should render a video with a title and an explanation', () => {

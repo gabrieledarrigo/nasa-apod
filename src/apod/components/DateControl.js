@@ -10,7 +10,7 @@ class DateControl extends React.Component {
     }
 
     handleChange(e, date) {
-        this.setState({ date: date }, () =>  this.submit());
+        this.setState({ date: date }, () =>  this.emit());
     }
 
     selected(day) {
@@ -21,7 +21,11 @@ class DateControl extends React.Component {
         return dateUtils.isAfter(day);
     }
 
-    submit() {
+    emit() {
+        if (this.disabled(this.state.date)) {
+            return;
+        }
+
         emitter.emit('date:change', this.state.date);
     }
 

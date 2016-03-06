@@ -20,7 +20,7 @@ gulp.task('clean', () => {
 
 gulp.task('js', () => {
     return browserify({
-            entries: './src/js/index.js',
+            entries: './src/apod/index.js',
             extensions: ['.js', '.jsx'],
             debug: true
         })
@@ -69,7 +69,7 @@ gulp.task('cssmin', () => {
 
 gulp.task('watch', () => {
     gulp.watch('./src/scss/**/*.scss', ['scss']);
-    gulp.watch('./src/js/**/*.js', ['js']);
+    gulp.watch('./src/apod/**/*.js', ['js']);
 });
 
 gulp.task('copy', () => {
