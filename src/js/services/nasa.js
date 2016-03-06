@@ -1,17 +1,24 @@
-import fetch from 'whatwg-fetch';
+import fetch from 'isomorphic-fetch';
 import dateUtils from '../utils/date-utils';
 
-const key = '3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl';
-const url = 'https://api.nasa.gov/planetary/apod?hd=true&api_key=';
+const KEY = '3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl';
+const URL = 'https://api.nasa.gov/planetary/apod?hd=true&api_key=';
 const today = dateUtils.today();
 
-export default {
-	get(date = today, cb = null) {
-		let parsed = `${url}${key}&date=${dateUtils.parse(date)}`;
+const self = typeof global !== 'undefined'
+    ? global
+    : window;
 
-        return window.fetch(parsed)
-            .then(res => res.json())
-            .then(json => cb(null, json))
-            .catch(err => cb(err, null));
+const nasa = {
+    get(date = today) {
+        const PARSED = `${URL}${KEY}&date=${dateUtils.parse(date)}`;
+
+        return self.fetch(PARSED)
+            .then(res => res.json());
+
+        //.then(json => cb(null, json))
+        //.catch(err => cb(err, null));
     }
 };
+
+export default nasa;
