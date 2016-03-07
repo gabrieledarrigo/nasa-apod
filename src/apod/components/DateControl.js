@@ -39,10 +39,10 @@ class DateControl extends React.Component {
                 <div className="date-control__content">
                     <DayPicker onDayClick={ this.handleChange.bind(this) }
                                toMonth={ dateUtils.now() }
-                               modifiers={ {
+                               modifiers={{
                                     selected : this.selected.bind(this),
                                     isDisabled: this.disabled.bind(this)
-                               } }/>
+                               }} />
                 </div>
             </div>
         );

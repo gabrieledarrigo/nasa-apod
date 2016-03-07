@@ -33,7 +33,7 @@ describe('NasaService', () => {
         sandbox.restore();
     });
 
-    it('shoul fetch the picture of the day from Nasa API', () => {
+    it('should fetch the picture of the day from Nasa API', () => {
         nasa.get().then(() => {
             assert.equal(fetch.callCount, 1);
             assert.equal(fetch.calledWith(
