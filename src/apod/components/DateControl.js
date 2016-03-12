@@ -1,8 +1,7 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
-import DateChanged, { DATE_CHANGED } from '../events/DateChanged';
-import dateUtils from '../helpers/date-utils';
-import emitter from '../helpers/event-emitter';
+import DateImmutable from '../models/DateImmutable';
+import emitter from '../events/event-emitter';
 
 class DateControl extends React.Component {
     constructor(props) {
@@ -15,11 +14,11 @@ class DateControl extends React.Component {
     }
 
     isSame(day) {
-        return dateUtils.isSame(day, this.state.date)
+        return DateImmutable.isSame(day, this.state.date);
     }
 
     isAfter(day) {
-        return dateUtils.isAfter(day);
+        return DateImmutable.isAfter(day, DateImmutable.today());
     }
 
     emit() {
@@ -27,9 +26,8 @@ class DateControl extends React.Component {
             return;
         }
 
-        emitter.emit('date:change',  new DateChanged({
-            date: this.state.date,
-            occurred: dateUtils.now
+        emitter.emit('date:change',  new DateImmutable({
+            date: this.state.date
         }));
     }
 
@@ -42,7 +40,7 @@ class DateControl extends React.Component {
 
                 <div className="date-control__content">
                     <DayPicker onDayClick={ this.handleChange.bind(this) }
-                               toMonth={ dateUtils.now() }
+                               toMonth={ DateImmutable.toDate() }
                                modifiers={{
                                     selected : this.isSame.bind(this),
                                     isDisabled: this.isAfter.bind(this)

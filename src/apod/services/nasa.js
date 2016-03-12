@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import dateUtils from '../helpers/date-utils';
+import DateImmutable from '../models/DateImmutable';
 import Media from '../models/Media';
 
 const KEY = '3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl';
@@ -10,12 +10,12 @@ const self = typeof global !== 'undefined'
     : window;
 
 const nasa = {
-    get(dateChanged) {
-        const date = typeof dateChanged !== 'undefined'
-                        ? dateChanged.get('date')
-                        : dateUtils.today();
+    get(dateImmutable) {
+        const date = typeof dateImmutable !== 'undefined'
+                        ? dateImmutable.get('date')
+                        : DateImmutable.today();
 
-        const PARSED = `${URL}${KEY}&date=${dateUtils.parse(date)}`;
+        const PARSED = `${URL}${KEY}&date=${DateImmutable.format(date)}`;
 
         return self.fetch(PARSED)
                     .then(res => res.json())

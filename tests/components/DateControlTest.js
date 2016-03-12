@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import emitter from '../../src/apod/helpers/event-emitter';
+import emitter from '../../src/apod/events/event-emitter';
 import DateControl from '../../src/apod/components/DateControl';
 
 describe('DateControlComponent', () => {

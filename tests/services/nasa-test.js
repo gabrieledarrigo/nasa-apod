@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import Immutable from 'immutable';
 import data from '../fixtures/response';
 import Media from '../../src/apod/models/Media';
-import dateUtils from '../../src/apod/helpers/date-utils';
+import DateImmutable from '../../src/apod/models/DateImmutable';
 import nasa from '../../src/apod/services/nasa';
 
 describe('NasaService', () => {
@@ -37,7 +37,7 @@ describe('NasaService', () => {
         nasa.get().then(() => {
             assert.equal(fetch.callCount, 1);
             assert.equal(fetch.calledWith(
-                `https://api.nasa.gov/planetary/apod?hd=true&api_key=3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl&date=${dateUtils.today()}`
+                `https://api.nasa.gov/planetary/apod?hd=true&api_key=3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl&date=${DateImmutable.today()}`
             ), true);
         });
     });
@@ -51,7 +51,6 @@ describe('NasaService', () => {
 
     it('return an empty Media object', () => {
         const empty = nasa.getEmptyMedia();
-
         assert.equal(Immutable.is(empty, new Media()), true);
     });
 });
