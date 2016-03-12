@@ -38,14 +38,13 @@ describe('DateControlComponent', () => {
         assert.equal(emitFn.calledWith('date:change'), true);
     });
 
-
     it('should not emit the date:change event if the user click on a day that comes after today', () => {
         const component = TestUtils.renderIntoDocument(<DateControl />);
         const node = ReactDOM.findDOMNode(component);
         const disabled = node.querySelectorAll('.DayPicker-Day--isDisabled')[0];
 
         TestUtils.Simulate.click(disabled, event);
-        
+
         assert.equal(emitFn.callCount, 0);
     });
 });

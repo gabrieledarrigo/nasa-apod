@@ -5,18 +5,14 @@ import TestUtils from 'react-addons-test-utils';
 import Video from '../../src/apod/components/Video';
 
 describe('VideoComponent', () => {
-    it('should render a video with a title and an explanation', () => {
+    it('should render a video with a specific src url', () => {
         const props = {
-            url:'http://www.img.it',
-            title: 'Title',
-            explanation: 'Explanation'
+            url:'http://www.img.it'
         };
 
         const component = TestUtils.renderIntoDocument(<Video data={ props }/>);
         const node = ReactDOM.findDOMNode(component);
 
         assert.equal(node.querySelector('.video__iframe').getAttribute('src'), props.url);
-        assert.equal(node.querySelector('.title').textContent, props.title);
-        assert.equal(node.querySelector('.explanation').textContent, props.explanation);
     });
 });

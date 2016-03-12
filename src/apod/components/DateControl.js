@@ -13,16 +13,16 @@ class DateControl extends React.Component {
         this.setState({ date: date }, () =>  this.emit());
     }
 
-    selected(day) {
+    isSame(day) {
         return dateUtils.isSame(day, this.state.date)
     }
 
-    disabled(day) {
+    isAfter(day) {
         return dateUtils.isAfter(day);
     }
 
     emit() {
-        if (this.disabled(this.state.date)) {
+        if (this.isAfter(this.state.date)) {
             return;
         }
 
@@ -40,8 +40,8 @@ class DateControl extends React.Component {
                     <DayPicker onDayClick={ this.handleChange.bind(this) }
                                toMonth={ dateUtils.now() }
                                modifiers={{
-                                    selected : this.selected.bind(this),
-                                    isDisabled: this.disabled.bind(this)
+                                    selected : this.isSame.bind(this),
+                                    isDisabled: this.isAfter.bind(this)
                                }} />
                 </div>
             </div>

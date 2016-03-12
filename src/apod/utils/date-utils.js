@@ -6,7 +6,7 @@ const isValidDate = date => moment(date).isValid();
 
 const isSame = (d1, d2) => moment(d1).isSame(d2);
 
-const isAfter = date => moment(date).isAfter(new Date());
+const isAfter = date => moment(parse(date)).isAfter(parse(moment()));
 
 const parse = date => moment(date).format(FORMAT);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import FigCaption from './FigCaption';
 
 class Video extends React.Component {
     constructor(props) {
@@ -9,22 +10,14 @@ class Video extends React.Component {
         return (
             <figure className="video">
                 <div className="picture__content">
-                    <iframe className="video__iframe" width="960" height="540"
+                    <iframe className="video__iframe"
                             src={ this.props.data.url }
                             frameBorder="0"
                             allowFullScreen="true">
                     </iframe>
                 </div>
 
-                <figcaption>
-                    <h4 className="title">
-                        {this.props.data.title}
-                    </h4>
-
-                    <h5 className="explanation">
-                        {this.props.data.explanation}
-                    </h5>
-                </figcaption>
+                <FigCaption title={this.props.data.title} explanation={this.props.data.explanation} />
             </figure>
         );
     }

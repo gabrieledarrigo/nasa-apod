@@ -1,4 +1,5 @@
 import React from 'react';
+import FigCaption from './FigCaption';
 
 class Picture extends React.Component {
     constructor(props) {
@@ -13,15 +14,7 @@ class Picture extends React.Component {
                         <img src={this.props.data.url} title={this.props.data.title} className="picture__img" />
                     </div>
 
-                    <figcaption>
-                        <h4 className="title">
-                            {this.props.data.title}
-                        </h4>
-
-                        <h5 className="explanation">
-                            {this.props.data.explanation}
-                        </h5>
-                    </figcaption>
+                    <FigCaption title={this.props.data.title} explanation={this.props.data.explanation} />
                 </figure>
             </div>
         );
