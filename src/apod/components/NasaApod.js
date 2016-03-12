@@ -1,6 +1,6 @@
 import React from 'react';
 import nasa from '../services/nasa';
-import emitter from '../utils/event-emitter';
+import emitter from '../helpers/event-emitter';
 import MediaTypes from '../models/MediaTypes';
 import Header from './Header';
 import Picture from './Picture';

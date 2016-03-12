@@ -1,7 +1,8 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
-import dateUtils from '../utils/date-utils';
-import emitter from '../utils/event-emitter';
+import DateChanged, { DATE_CHANGED } from '../events/DateChanged';
+import dateUtils from '../helpers/date-utils';
+import emitter from '../helpers/event-emitter';
 
 class DateControl extends React.Component {
     constructor(props) {
@@ -26,7 +27,10 @@ class DateControl extends React.Component {
             return;
         }
 
-        emitter.emit('date:change', this.state.date);
+        emitter.emit('date:change',  new DateChanged({
+            date: this.state.date,
+            occurred: dateUtils.now
+        }));
     }
 
     render() {

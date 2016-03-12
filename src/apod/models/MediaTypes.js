@@ -1,5 +1,3 @@
 import Immutable from 'immutable';
 
-const MediaTypes = Immutable.Map;
-
-export default MediaTypes;
+export default Immutable.Map;

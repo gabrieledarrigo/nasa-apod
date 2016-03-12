@@ -1,5 +1,5 @@
 import React from 'react';
-import emitter from '../utils/event-emitter';
+import emitter from '../helpers/event-emitter';
 import NavBtn from './NavBtn';
 import NavList from './NavList';
 

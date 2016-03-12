@@ -1,10 +1,8 @@
 import Immutable from 'immutable';
 
-const Media = Immutable.Record({
+export default Immutable.Record({
     title: '',
     url: '',
     explanation: '',
     media_type: ''
 });
-
-export default Media;

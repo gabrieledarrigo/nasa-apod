@@ -7,3 +7,4 @@ export default Immutable.Record({
     occurred: null,
     date: null
 });
+

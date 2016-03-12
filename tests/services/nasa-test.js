@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import Immutable from 'immutable';
 import data from '../fixtures/response';
 import Media from '../../src/apod/models/Media';
-import dateUtils from '../../src/apod/utils/date-utils';
+import dateUtils from '../../src/apod/helpers/date-utils';
 import nasa from '../../src/apod/services/nasa';
 
 describe('NasaService', () => {
