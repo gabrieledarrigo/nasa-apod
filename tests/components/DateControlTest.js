@@ -47,4 +47,15 @@ describe('DateControlComponent', () => {
 
         assert.equal(emitFn.callCount, 0);
     });
+
+    it('should show an error message if the user select a disabled day', () => {
+        const component = TestUtils.renderIntoDocument(<DateControl />);
+        const node = ReactDOM.findDOMNode(component);
+        const disabled = node.querySelectorAll('.DayPicker-Day--isDisabled')[0];
+        const errorMessage = node.querySelector('.error-message');
+
+        TestUtils.Simulate.click(disabled, event);
+
+        assert.equal(errorMessage.textContent, 'Date must be between Jun 16, 1995 and today.');
+    });
 });

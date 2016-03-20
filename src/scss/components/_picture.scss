@@ -1,0 +1,18 @@
+.picture {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    .picture__content {
+        height: 100%;
+        width: 100%;
+    }
+
+    .picture__img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+    }
+}

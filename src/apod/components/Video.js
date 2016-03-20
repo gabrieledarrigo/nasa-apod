@@ -9,7 +9,7 @@ class Video extends React.Component {
     render() {
         return (
             <figure className="video">
-                <div className="picture__content">
+                <div className="video__content">
                     <iframe className="video__iframe"
                             src={ this.props.data.url }
                             frameBorder="0"

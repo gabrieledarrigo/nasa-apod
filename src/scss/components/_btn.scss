@@ -10,16 +10,4 @@
     &:hover {
         cursor: pointer;
     }
-
-    &--green {
-        background-color: #30d156;
-        border: 1px solid #1fb542;
-        box-shadow: 0px 4px 0px 1px #1fb542, 0px 5px 10px rgba(0, 0, 0, 0.9);
-        color: #FFFFFF;
-
-        &:active,
-        &:focus {
-            transform: scale(0.98, 0.9);
-        }
-    }
 }

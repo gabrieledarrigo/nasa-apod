@@ -14,6 +14,7 @@ describe('FigCaptionComponent', () => {
         const component = TestUtils.renderIntoDocument(<FigCaption { ...props } />);
         const node = ReactDOM.findDOMNode(component);
 
+        assert.equal(node.classList.contains('figcaption'), true);
         assert.equal(node.querySelector('.title').textContent, props.title);
         assert.equal(node.querySelector('.explanation').textContent, props.explanation);
     });

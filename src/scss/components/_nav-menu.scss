@@ -1,5 +1,5 @@
 .nav-menu {
-    border-bottom: 1px solid #DEDEDE;
+    border-bottom: 1px solid $gray;
     height: 45px;
     line-height: 45px;
     padding: 0;
@@ -18,8 +18,8 @@
     }
 
     &__list {
-        background-color: #FFFFFF;
-        border: 1px solid #EDEDED;
+        background-color: $white;
+        border: 1px solid $light-gray;
         display: none;
         height: 100%;
         list-style-type: none;

@@ -7,7 +7,7 @@ class FigCaption extends React.Component {
 
     render() {
         return(
-            <figcaption>
+            <figcaption className="figcaption">
                 <h4 className="title">
                     {this.props.title}
                 </h4>

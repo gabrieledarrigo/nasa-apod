@@ -73,7 +73,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('copy', () => {
-    return gulp.src('./src/index.html')
+    return gulp.src(['./src/index.html', './src/favicon.ico'])
         .pipe(gulp.dest('./dist'));
 });
 

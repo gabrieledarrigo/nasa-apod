@@ -81,14 +81,15 @@
     vertical-align: middle;
 
     &--today {
-        color: #d0021b;
+        color: $red;
         font-weight: 500;
     }
 
-    &--disabled {
+    &--isDisabled {
         color: #dce0e0;
         cursor: default;
-        background-color: #eff1f1;
+        background-color: #FFF;
+        opacity: 0.9;
     }
 
     &--outside {
@@ -102,7 +103,7 @@
     }
 
     &--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-        color: #FFF;
+        color: $white;
         background-color: #1a5dad;
     }
 

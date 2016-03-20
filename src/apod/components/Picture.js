@@ -8,15 +8,13 @@ class Picture extends React.Component {
 
     render() {
         return (
-            <div className="content">
-                <figure className="picture">
-                    <div className="picture__content">
-                        <img src={this.props.data.url} title={this.props.data.title} className="picture__img" />
-                    </div>
+            <figure className="picture">
+                <div className="picture__content">
+                    <img src={this.props.data.url} title={this.props.data.title} className="picture__img" />
+                </div>
 
-                    <FigCaption title={this.props.data.title} explanation={this.props.data.explanation} />
-                </figure>
-            </div>
+                <FigCaption title={this.props.data.title} explanation={this.props.data.explanation} />
+            </figure>
         );
     }
 }

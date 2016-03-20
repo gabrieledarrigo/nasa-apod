@@ -35,6 +35,8 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
+    "build": "gulp build",
+    "serve": "gulp serve",
     "test": "mocha --compilers js:babel-core/register -R spec --recursive tests/"
   },
   "repository": {

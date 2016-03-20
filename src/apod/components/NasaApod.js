@@ -43,7 +43,9 @@ class NasaApod extends React.Component {
         return (
             <section id="nasa-apod">
                 <Header />
-                <Component data={ this.state.media } />
+                <div className="content">
+                    <Component data={ this.state.media } />
+                </div>
             </section>
         );
 	}
