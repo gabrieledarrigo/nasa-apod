@@ -33,9 +33,11 @@ class DateControl extends React.Component {
             this.setState({ error: false });
         }
 
-        emitter.emit('date:change',  new DateImmutable({
-            date: this.state.date
-        }));
+        console.log(this.props);
+
+        //emitter.emit('date:change',  new DateImmutable({
+        //    date: this.state.date
+        //}));
     }
 
     render() {

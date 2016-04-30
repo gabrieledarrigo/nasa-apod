@@ -2,6 +2,7 @@ import React from 'react';
 import nasa from '../services/nasa';
 import emitter from '../events/event-emitter';
 import MediaTypes from '../models/MediaTypes';
+import DateImmutable from '../models/DateImmutable';
 import Header from './Header';
 import Picture from './Picture';
 import Video from './Video';
@@ -13,12 +14,17 @@ class NasaApod extends React.Component {
     }
 
 	componentDidMount() {
-        emitter.addListener('date:change', this.getData.bind(this));
-		return this.getData();
+        emitter.addListener('date:change', this.getMedia.bind(this));
+		return this.getMedia();
 	}
 
-    getData(date) {    	
-        return nasa.get(date)
+    getMedia() {
+        const { date } = this.props.params;
+        const valid = DateImmutable.isValid(date)
+            ? new DateImmutable({ date: date })
+            : new DateImmutable({ date: DateImmutable.today() });
+        
+        return nasa.getMedia(valid)
             .then(media => this.setState({ media }))
             .catch(err => console.err(err));
     }

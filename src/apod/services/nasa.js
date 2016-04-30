@@ -10,7 +10,7 @@ const self = typeof global !== 'undefined'
     : window;
 
 const nasa = {
-    get(dateImmutable) {
+    getMedia(dateImmutable) {
         const date = typeof dateImmutable !== 'undefined'
                         ? dateImmutable.get('date')
                         : DateImmutable.today();

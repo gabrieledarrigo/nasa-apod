@@ -5,12 +5,15 @@ import browserSync from 'browser-sync';
 import buffer from 'vinyl-buffer';
 import cssmin from 'gulp-cssmin';
 import del from 'del';
-import rename from "gulp-rename";
+import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import sequence from 'run-sequence';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
 
 gulp.task('clean', () => {
     return del([
@@ -81,7 +84,21 @@ gulp.task('serve', () => {
     const bs = browserSync.create();
 
     return bs.init({
-        server: './dist'
+        server: {
+            baseDir: ['./dist'],
+            middleware: (req, res, next) => {
+                let dist = __dirname + '/dist';
+                let name = url.parse(req.url);
+
+                name = name.href.split(name.search).join('');
+
+                if (!fs.existsSync(dist + name) && name.indexOf('browser-sync-client') < 0) {
+                    req.url = '/index.html';
+                }
+
+                return next();
+            }
+        }
     });
 });
 
