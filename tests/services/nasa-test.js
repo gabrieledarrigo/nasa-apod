@@ -34,7 +34,7 @@ describe('NasaService', () => {
     });
 
     it('should fetch the picture of the day from Nasa API', () => {
-        nasa.get().then(() => {
+        nasa.getMedia().then(() => {
             assert.equal(fetch.callCount, 1);
             assert.equal(fetch.calledWith(
                 `https://api.nasa.gov/planetary/apod?hd=true&api_key=3RwXJFXWRPro4tK010f9CzXSQ36XkZWrzFZXhfTl&date=${DateImmutable.today()}`
@@ -43,7 +43,7 @@ describe('NasaService', () => {
     });
 
     it('should return a Media object with the nasa picture data', () => {
-        nasa.get().then(media => {
+        nasa.getMedia().then(media => {
             assert.equal(Immutable.is(media, new Media(data)), true);
             assert.deepEqual(media, data);
         });

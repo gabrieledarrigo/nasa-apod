@@ -6,27 +6,49 @@ import DateImmutable from '../models/DateImmutable';
 import Header from './Header';
 import Picture from './Picture';
 import Video from './Video';
+import LoadingSpinner from './LoadingSpinner';
 
 class NasaApod extends React.Component {
 	constructor(props) {
 		super(props);
-        this.state = { media: nasa.getEmptyMedia() };
+        this.state = {
+            media: nasa.getEmptyMedia(),
+            loading: false
+        };
     }
 
 	componentDidMount() {
-        emitter.addListener('date:change', this.getMedia.bind(this));
-		return this.getMedia();
+		return this.getMedia(
+            this.computeDateParam(this.props.params.date)
+        );
 	}
 
-    getMedia() {
-        const { date } = this.props.params;
-        const valid = DateImmutable.isValid(date)
-            ? new DateImmutable({ date: date })
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.params.date === this.props.params.date) {
+            return false;
+        }
+
+        return this.getMedia(
+            this.computeDateParam(nextProps.params.date)
+        );
+    }
+
+    computeDateParam(param = null) {
+        return DateImmutable.isValid(param)
+            ? new DateImmutable({ date: param })
             : new DateImmutable({ date: DateImmutable.today() });
-        
-        return nasa.getMedia(valid)
-            .then(media => this.setState({ media }))
-            .catch(err => console.err(err));
+    }
+
+    getMedia(date) {
+        this.setState({ loading: true });
+
+        //setTimeout(() => {
+        //    return nasa.getMedia(date)
+        //        .then(media => this.setState({ media: media, loading: false }))
+        //        .catch(err => console.err(err));
+        //}, 2000)
+
+
     }
 
     getMediaComponent() {
@@ -52,6 +74,8 @@ class NasaApod extends React.Component {
                 <div className="content">
                     <Component data={ this.state.media } />
                 </div>
+
+                <LoadingSpinner loading={ this.state.loading } />
             </section>
         );
 	}

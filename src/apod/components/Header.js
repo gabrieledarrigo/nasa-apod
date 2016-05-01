@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import emitter from '../events/event-emitter';
 import NavBtn from './NavBtn';
 import NavList from './NavList';
@@ -23,7 +24,7 @@ class Header extends React.Component {
     render() {
         return(
             <header id="header">
-                <h1 className="logo"></h1>
+                <Link to="/" className="logo" />
 
                 <nav className="nav-menu">
                     <NavBtn open={ this.state.open } toggle={ this.toggle.bind(this) } />

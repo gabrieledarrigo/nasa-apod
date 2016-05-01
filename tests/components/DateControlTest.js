@@ -3,16 +3,20 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
+import * as Router from 'react-router';
+import DateImmutable from '../../src/apod/models/DateImmutable';
 import emitter from '../../src/apod/events/event-emitter';
 import DateControl from '../../src/apod/components/DateControl';
 
 describe('DateControlComponent', () => {
-    let sandbox, event, emitFn;
+    let sandbox, event, emitFn, pushFn;
+    Router.browserHistory = { push: () => {}};
 
     beforeEach(() => {
         event  = { type : 'click' };
         sandbox = sinon.sandbox.create();
         emitFn = sandbox.stub(emitter, 'emit', (e, d) => {});
+        pushFn = sandbox.stub(Router.browserHistory, 'push', url => {});
     });
 
     afterEach(() => {
@@ -36,6 +40,10 @@ describe('DateControlComponent', () => {
 
         assert.equal(emitFn.callCount, 1);
         assert.equal(emitFn.calledWith('date:change'), true);
+        assert.equal(pushFn.callCount, 1);
+
+        console.log(pushFn.args);
+        assert.equal(pushFn.calledWith(`/date/${DateImmutable.format(DateImmutable.today())}`), true);
     });
 
     it('should not emit the date:change event if the user click on a day that comes after today', () => {

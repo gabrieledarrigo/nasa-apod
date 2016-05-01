@@ -1,7 +1,8 @@
 import React from 'react';
+import * as Router from 'react-router';
 import DayPicker from 'react-day-picker';
-import DateImmutable from '../models/DateImmutable';
 import emitter from '../events/event-emitter';
+import DateImmutable from '../models/DateImmutable';
 import ErrorMessage from './ErrorMessage';
 
 class DateControl extends React.Component {
@@ -33,11 +34,8 @@ class DateControl extends React.Component {
             this.setState({ error: false });
         }
 
-        console.log(this.props);
-
-        //emitter.emit('date:change',  new DateImmutable({
-        //    date: this.state.date
-        //}));
+        Router.browserHistory.push(`/date/${DateImmutable.format(this.state.date)}`);
+        return emitter.emit('date:change');
     }
 
     render() {
