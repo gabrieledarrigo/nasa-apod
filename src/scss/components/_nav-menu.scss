@@ -14,24 +14,75 @@
 
         &:hover {
             cursor: pointer;
+            background-color: lighten($middle-gray, 30%);
+        }
+
+        &:before {
+            background-color: lighten($middle-gray, 10%);
+            border-radius: 100%;
+            display: block;
+            content: "";
+            left: 50%;
+            padding-top: 0;
+            position: absolute;
+            top: 50%;
+            width: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        &:active:before {
+            width: 120%;
+            padding-top: 120%;
+            transition: width .2s ease-out, padding-top .2s ease-out;
         }
     }
 
     &__list {
-        background-color: $white;
-        border: 1px solid $light-gray;
-        display: none;
+        background-color: rgba(0, 0, 0, 0.7);
         height: 100%;
         list-style-type: none;
         margin: 0;
-        padding: 10px;
         position: fixed;
-        top: 40px;
+        top: 44px;
         width: 100%;
         z-index: 2;
+        transform: translate3d(100%, 0, 0);
+        transition: all 0.5s;
 
         &.is--open {
-            display: block;
+            animation: fadein 0.5s ease-in;
+            animation-fill-mode: forwards;
+            transform: translate3d(0%, 0, 0);
         }
+
+        &__item {
+            background-color: $white;
+            display: block;
+            height: 100%;
+            left: 40%;
+            padding: 10px;
+            position: absolute;
+            width: 60%;
+        }
+    }
+}
+
+@keyframes fadein {
+    0% {
+       opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0);
     }
 }

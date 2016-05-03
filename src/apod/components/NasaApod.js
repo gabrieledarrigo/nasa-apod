@@ -42,13 +42,9 @@ class NasaApod extends React.Component {
     getMedia(date) {
         this.setState({ loading: true });
 
-        //setTimeout(() => {
-        //    return nasa.getMedia(date)
-        //        .then(media => this.setState({ media: media, loading: false }))
-        //        .catch(err => console.err(err));
-        //}, 2000)
-
-
+        return nasa.getMedia(date)
+            .then(media => this.setState({ media: media, loading: false }))
+            .catch(err => console.err(err));
     }
 
     getMediaComponent() {
@@ -71,9 +67,14 @@ class NasaApod extends React.Component {
         return (
             <section id="nasa-apod">
                 <Header />
-                <div className="content">
-                    <Component data={ this.state.media } />
-                </div>
+
+                {
+                    this.state.loading === false
+                        ?   <div className="content">
+                                <Component data={ this.state.media } />
+                            </div>
+                        : null
+                }
 
                 <LoadingSpinner loading={ this.state.loading } />
             </section>

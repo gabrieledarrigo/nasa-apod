@@ -80,6 +80,10 @@
     cursor: pointer;
     vertical-align: middle;
 
+    &:hover {
+        background-color: lighten($middle-gray, 30%);
+    }
+
     &--today {
         color: $red;
         font-weight: 500;
@@ -90,6 +94,10 @@
         cursor: default;
         background-color: #FFF;
         opacity: 0.9;
+
+        &:hover {
+            background-color: #FFF;
+        }
     }
 
     &--outside {

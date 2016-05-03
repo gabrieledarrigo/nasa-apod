@@ -8,6 +8,7 @@ class LoadingSpinner extends React.Component {
     render() {
         return(
             <div className={ this.props.loading ? 'loading-spinner is-visible' : 'loading-spinner' }>
+                <div className="loading-spinner__logo"></div>
                 <div className="loading-spinner__indicator"></div>
             </div>
         );
