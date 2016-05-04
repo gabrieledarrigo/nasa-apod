@@ -35467,6 +35467,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _reactRouter.Router,
     { history: _reactRouter.browserHistory },
     _react2.default.createElement(_reactRouter.Route, { path: '/', component: _NasaApod2.default }),
+    _react2.default.createElement(_reactRouter.Route, { path: '/index.html', component: _NasaApod2.default }),
     _react2.default.createElement(_reactRouter.Route, { path: '/date/:date', component: _NasaApod2.default })
 ), document.getElementById('main'));
 
