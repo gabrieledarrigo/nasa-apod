@@ -61,7 +61,7 @@
     padding: .5rem;
     font-size: .875em;
     text-align: center;
-    color: #8b9898;
+    color: $dark-gray;
 }
 
 .DayPicker-Body {
@@ -74,14 +74,17 @@
 
 .DayPicker-Day {
     display: table-cell;
+    overflow: hidden;
     padding: .2rem;
+    position: relative;
     border: 1px solid #eaecec;
     text-align: center;
     cursor: pointer;
     vertical-align: middle;
+    @include material-hover(rgba(158, 158, 158, 0.6));
 
     &:hover {
-        background-color: lighten($middle-gray, 30%);
+        background-color: lighten(rgba(158, 158, 158, 0.6), 30%);
     }
 
     &--today {
@@ -92,11 +95,11 @@
     &--isDisabled {
         color: #dce0e0;
         cursor: default;
-        background-color: #FFF;
+        background-color: $white;
         opacity: 0.9;
 
         &:hover {
-            background-color: #FFF;
+            background-color: $white;
         }
     }
 
@@ -110,9 +113,9 @@
         background-color: #f7f8f8;
     }
 
-    &--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    &--selected:not(.DayPicker-Day--isDisabled):not(.DayPicker-Day--outside) {
         color: $white;
-        background-color: #1a5dad;
+        background-color: $blue;
     }
 
     .DayPicker--interactionDisabled & {

@@ -7,33 +7,16 @@
     &__btn {
         height: 45px;
         width: 45px;
+        overflow: hidden;
         position: absolute;
         right: 10px;
         text-align: center;
         top: 0;
+        @include material-hover(rgba(158, 158, 158, 0.6));
 
         &:hover {
             cursor: pointer;
-            background-color: lighten($middle-gray, 30%);
-        }
-
-        &:before {
-            background-color: lighten($middle-gray, 10%);
-            border-radius: 100%;
-            display: block;
-            content: "";
-            left: 50%;
-            padding-top: 0;
-            position: absolute;
-            top: 50%;
-            width: 0;
-            transform: translate(-50%, -50%);
-        }
-
-        &:active:before {
-            width: 120%;
-            padding-top: 120%;
-            transition: width .2s ease-out, padding-top .2s ease-out;
+            background-color: lighten(rgba(158, 158, 158, 0.6), 30%);
         }
     }
 

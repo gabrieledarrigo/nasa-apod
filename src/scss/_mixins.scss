@@ -1,0 +1,20 @@
+@mixin material-hover($color) {
+    &:active:before {
+        width: 120%;
+        padding-top: 120%;
+        transition: width .2s ease-out, padding-top .2s ease-out;
+    }
+
+    &:before {
+        background-color: lighten($color, 10%);
+        border-radius: 100%;
+        display: block;
+        content: "";
+        left: 50%;
+        padding-top: 0;
+        position: absolute;
+        top: 50%;
+        width: 0;
+        transform: translate(-50%, -50%);
+    }
+}
