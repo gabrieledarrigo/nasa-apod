@@ -7,5 +7,7 @@ ReactDOM.render((
     <Router history={ browserHistory }>
         <Route path="/" component={ NasaApod }></Route>
         <Route path="/date/:date" component={ NasaApod }></Route>
+        <Route path="/nasa-apod/" component={ NasaApod }></Route>
+        <Route path="/nasa-apod//date/:date" component={ NasaApod }></Route>
     </Router>
 ), document.getElementById('main'));
