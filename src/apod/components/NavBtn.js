@@ -7,7 +7,7 @@ class NavBtn extends React.Component {
 
     render() {
         return(
-            <div className="nav-menu__btn" onClick={ this.props.toggle }>
+            <div className="nav-menu__btn" ref="navMenuBtn">
                 <span className={ this.props.open ? 'fa fa-close' : 'fa fa-bars' }></span>
             </div>
         );

@@ -1,6 +1,5 @@
 import React from 'react';
 import nasa from '../services/nasa';
-import emitter from '../events/event-emitter';
 import MediaTypes from '../models/MediaTypes';
 import DateImmutable from '../models/DateImmutable';
 import Header from './Header';
@@ -43,7 +42,9 @@ class NasaApod extends React.Component {
         this.setState({ loading: true });
 
         return nasa.getMedia(date)
-            .then(media => this.setState({ media: media, loading: false }))
+            .then(media => { setTimeout(() => {
+                this.setState({ media: media, loading: false });
+            }, 1000)})
             .catch(err => console.err(err));
     }
 
@@ -67,7 +68,6 @@ class NasaApod extends React.Component {
         return (
             <section id="nasa-apod">
                 <Header />
-
                 {
                     this.state.loading === false
                         ?   <div className="content">
@@ -75,7 +75,6 @@ class NasaApod extends React.Component {
                             </div>
                         : null
                 }
-
                 <LoadingSpinner loading={ this.state.loading } />
             </section>
         );

@@ -1,4 +1,13 @@
 .figcaption {
+    .explanation,
+    .title {
+        padding: 0 16px;
+
+        @media only screen and(min-width: 1200px) {
+            padding: 0;
+        }
+    }
+
     .title {
         color: $red;
         font-size: 16px;
@@ -22,6 +31,10 @@
         @media only screen and(min-width: 768px) {
             font-size: 15.5px;
             line-height: 1.4em;
+        }
+
+        &::selection {
+            background: rgba(238, 48, 61, 0.5);
         }
 
         &--white {

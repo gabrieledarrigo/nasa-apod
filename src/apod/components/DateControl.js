@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Router from 'react-router';
 import DayPicker from 'react-day-picker';
-import emitter from '../events/event-emitter';
 import DateImmutable from '../models/DateImmutable';
 import ErrorMessage from './ErrorMessage';
 
@@ -16,26 +15,20 @@ class DateControl extends React.Component {
     }
 
     handleChange(e, date) {
-        this.setState({ date: date }, () =>  this.emit());
+        if (this.isAfterToday(date)) {
+            return this.setState({ error: true });
+        }
+
+        this.setState({ date: date, error: false });
+        return Router.browserHistory.push(`/nasa-apod/date/${DateImmutable.format(date)}`);
     }
 
-    isSame(day) {
+    isSameDay(day) {
         return DateImmutable.isSame(day, this.state.date);
     }
 
-    isAfter(day) {
+    isAfterToday(day) {
         return DateImmutable.isAfter(day, DateImmutable.today());
-    }
-
-    emit() {
-        if (this.isAfter(this.state.date)) {
-            return this.setState({ error: true });
-        } else {
-            this.setState({ error: false });
-        }
-
-        Router.browserHistory.push(`/date/${DateImmutable.format(this.state.date)}`);
-        return emitter.emit('date:change');
     }
 
     render() {
@@ -51,8 +44,8 @@ class DateControl extends React.Component {
                     <DayPicker onDayClick={ this.handleChange.bind(this) }
                                toMonth={ DateImmutable.toDate() }
                                modifiers={{
-                                    selected : this.isSame.bind(this),
-                                    isDisabled: this.isAfter.bind(this)
+                                    selected : this.isSameDay.bind(this),
+                                    isDisabled: this.isAfterToday.bind(this)
                                }} />
                 </div>
             </div>

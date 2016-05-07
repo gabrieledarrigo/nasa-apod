@@ -3,14 +3,15 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import emitter from '../../src/apod/events/event-emitter';
 import Header from '../../src/apod/components/Header';
 
 describe('HeaderComponent', () => {
-    let sandbox;
+    let sandbox, component, node;
 
     beforeEach(() => {
         sandbox = sinon.sandbox.create();
+        component = TestUtils.renderIntoDocument(<Header />);
+        node = ReactDOM.findDOMNode(component);
     });
 
     afterEach(() => {
@@ -18,18 +19,19 @@ describe('HeaderComponent', () => {
     });
 
     it('should render a header element', () => {
-        const component = TestUtils.renderIntoDocument(<Header />);
-        const node = ReactDOM.findDOMNode(component);
-
         assert.equal(node.getAttribute('id'), 'header');
     });
 
-    it('should invoke toggle method when receiving a date:change event', () => {
-        const component = TestUtils.renderIntoDocument(<Header />);
-        const node = ReactDOM.findDOMNode(component);
+    it('should open / close when user click one of ["nav-menu__btn", "nav-menu__list", "DayPicker-Day"] element', () => {
+        const event  = { type : 'click' };
 
+        TestUtils.Simulate.click(node.querySelector('.nav-menu__btn'), event);
+        assert.equal(component.state.open, true);
+
+        TestUtils.Simulate.click(node.querySelector('.nav-menu__list'), event);
         assert.equal(component.state.open, false);
-        emitter.emit('date:change', new Date());
+
+        TestUtils.Simulate.click(node.querySelector('.DayPicker-Day'), event);
         assert.equal(component.state.open, true);
     });
 });

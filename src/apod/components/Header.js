@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router';
-import emitter from '../events/event-emitter';
 import NavBtn from './NavBtn';
 import NavList from './NavList';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = { open: false };
+        this.state = {
+            open: false
+        };
     }
 
-    componentDidMount() {
-        emitter.addListener('date:change', this.toggle.bind(this));
-    }
-
-    toggle() {
-        this.setState({
-            open: !this.state.open
+    toggle(e) {
+        ['nav-menu__btn', 'nav-menu__list', 'DayPicker-Day'].forEach(className => {
+            if (e.target.classList.contains(className)) {
+                return this.setState({
+                    open: !this.state.open
+                });
+            }
         });
     }
 
@@ -26,8 +26,8 @@ class Header extends React.Component {
             <header id="header">
                 <Link to="/" className="logo" />
 
-                <nav className="nav-menu">
-                    <NavBtn open={ this.state.open } toggle={ this.toggle.bind(this) } />
+                <nav className="nav-menu" onClick={ this.toggle.bind(this) }>
+                    <NavBtn open={ this.state.open } />
                     <NavList open={ this.state.open } />
                 </nav>
             </header>
