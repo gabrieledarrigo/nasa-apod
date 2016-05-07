@@ -1,10 +1,45 @@
 @import url("https://fonts.googleapis.com/css?family=Oxygen");
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #ee293d;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    background-color: rgba(238, 41, 61, 0);
+    transform: scale(1.3, 1.3);
+  }
+}
+
 .DayPicker {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
   user-select: none;
+}
+
+.DayPicker,
+.DayPicker *:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 .DayPicker-Month {
@@ -218,6 +253,10 @@
   transition: all 0.5s;
 }
 
+.nav-menu__list:hover {
+  cursor: pointer;
+}
+
 .nav-menu__list.is--open {
   animation: fadein 0.5s ease-in;
   animation-fill-mode: forwards;
@@ -228,27 +267,23 @@
   background-color: #FFFFFF;
   display: block;
   height: 100%;
-  left: 40%;
+  left: 0;
   padding: 10px;
   position: absolute;
-  width: 60%;
+  width: 100%;
 }
 
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+@media only screen and (min-width: 768px) {
+  .nav-menu__list__item {
+    width: 65%;
+    left: 35%;
   }
 }
 
-@keyframes fadeout {
-  0% {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  100% {
-    background-color: transparent;
+@media only screen and (min-width: 1024px) {
+  .nav-menu__list__item {
+    width: 60%;
+    left: 40%;
   }
 }
 
@@ -327,6 +362,18 @@
   width: 100%;
 }
 
+.figcaption .explanation,
+.figcaption .title {
+  padding: 0 16px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .figcaption .explanation,
+  .figcaption .title {
+    padding: 0;
+  }
+}
+
 .figcaption .title {
   color: #EE293D;
   font-size: 16px;
@@ -355,6 +402,10 @@
     font-size: 15.5px;
     line-height: 1.4em;
   }
+}
+
+.figcaption .explanation::selection {
+  background: rgba(238, 48, 61, 0.5);
 }
 
 .figcaption .explanation--white {
@@ -402,17 +453,6 @@
   background-color: #ee293d;
 }
 
-@keyframes pulse {
-  0% {
-    background-color: #ee293d;
-    transform: scale(0.5, 0.5);
-  }
-  100% {
-    background-color: rgba(238, 41, 61, 0);
-    transform: scale(1.3, 1.3);
-  }
-}
-
 *,
 *:before,
 *:after {
@@ -427,6 +467,7 @@ body {
 
 #main {
   height: 100vh;
+  overflow-x: hidden;
   width: 100vw;
 }
 
