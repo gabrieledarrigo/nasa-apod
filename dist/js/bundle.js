@@ -35899,6 +35899,18 @@ var Picture = function (_React$Component) {
                     { className: 'picture__content' },
                     _react2.default.createElement('img', { src: this.props.data.url, title: this.props.data.title, className: 'picture__img' })
                 ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'btn secondary-nav__control', onClick: function onClick(e) {
+                            e.target.classList.toggle('is-active');
+                        } },
+                    _react2.default.createElement('span', { className: 'fa fa-ellipsis-v' }),
+                    _react2.default.createElement(
+                        'nav',
+                        null,
+                        _react2.default.createElement('ul', null)
+                    )
+                ),
                 _react2.default.createElement(_FigCaption2.default, { title: this.props.data.title, explanation: this.props.data.explanation })
             );
         }

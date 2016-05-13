@@ -1,0 +1,32 @@
+.secondary-nav {
+    &__control {
+        //border: 1px solid $light-gray;
+        border-radius: 0;
+        font-size: 1.2rem;
+        float: right;
+        height: 40px;
+        line-height: 40px;
+        margin: 5px 0;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 40px;
+        @include material-hover(rgba(158, 158, 158, 0.6));
+
+        &.is-active {
+            .fa {
+                transform: rotate(90deg) translateZ(0);
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: lighten(rgba(158, 158, 158, 0.6), 30%);
+        }
+
+        .fa {
+            transition: all 0.3s ease-in-out;
+            transform: rotate(0deg) translateZ(0);
+        }
+    }
+}
