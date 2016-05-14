@@ -1,0 +1,61 @@
+.contextual-menu {
+    background-color: $white;
+    border: 1px solid $light-gray;
+    box-shadow: 1px 1px 10px rgba(59, 59, 50, 0.6);
+    position: absolute;
+    right: 0;
+    width: 300px;
+    z-index: 2;
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        &__item {
+            padding: 15px;
+        }
+    }
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: row;
+
+    &__element {
+        flex-grow: 1;
+        justify-content: space-between;
+        height: 40px;
+        line-height: 40px;
+        overflow: hidden;
+
+        &:hover {
+            color: $white;
+        }
+
+        &--facebook {
+            background-color: #3b5998;
+
+            &:hover {
+                background-color: rgba(59, 89, 152, 0.8);
+            }
+        }
+
+        &--twitter {
+            background-color: #55acee;
+
+            &:hover {
+                background-color: rgba(85, 172, 238, 0.8);
+            }
+        }
+
+        &--google-pulse {
+            background-color: #dd4b39;
+
+            &:hover {
+                background-color: rgba(221, 75, 57, 0.8);
+            }
+        }
+    }
+}
+

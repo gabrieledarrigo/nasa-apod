@@ -1,12 +1,17 @@
 .secondary-nav {
+    float: right;
+    height: 40px;
+    margin: 5px 0;
+    position: relative;
+
     &__control {
         //border: 1px solid $light-gray;
+        background-color: green;
         border-radius: 0;
         font-size: 1.2rem;
-        float: right;
         height: 40px;
         line-height: 40px;
-        margin: 5px 0;
+        margin: 0;
         overflow: hidden;
         padding: 0;
         position: relative;
