@@ -1,5 +1,6 @@
 import React from 'react';
 import FigCaption from './FigCaption';
+import SecondaryNav from './SecondaryNav';
 
 class Video extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class Video extends React.Component {
                     </iframe>
                 </div>
 
+                <SecondaryNav />
                 <FigCaption title={this.props.data.title} explanation={this.props.data.explanation} />
             </figure>
         );

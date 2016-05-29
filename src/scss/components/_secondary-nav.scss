@@ -5,8 +5,7 @@
     position: relative;
 
     &__control {
-        //border: 1px solid $light-gray;
-        background-color: green;
+        border: 1px solid $light-gray;
         border-radius: 0;
         font-size: 1.2rem;
         height: 40px;
@@ -19,6 +18,8 @@
         @include material-hover(rgba(158, 158, 158, 0.6));
 
         &.is-active {
+            background-color: lighten(rgba(158, 158, 158, 0.6), 30%);
+
             .fa {
                 transform: rotate(90deg) translateZ(0);
             }
