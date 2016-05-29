@@ -11,11 +11,7 @@ class Video extends React.Component {
         return (
             <figure className="video">
                 <div className="video__content">
-                    <iframe className="video__iframe"
-                            src={ this.props.data.url }
-                            frameBorder="0"
-                            allowFullScreen="true">
-                    </iframe>
+                    <iframe className="video__iframe" src={ this.props.data.url } frameBorder="0" allowFullScreen="true"></iframe>
                 </div>
 
                 <SecondaryNav />

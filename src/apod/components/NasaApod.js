@@ -42,9 +42,10 @@ class NasaApod extends React.Component {
         this.setState({ loading: true });
 
         return nasa.getMedia(date)
-            .then(media => { setTimeout(() => {
-                this.setState({ media: media, loading: false });
-            }, 0)})
+            .then(media => {
+                setTimeout(() => {
+                    this.setState({ media: media, loading: false });
+                }, 0)})
             .catch(err => console.err(err));
     }
 

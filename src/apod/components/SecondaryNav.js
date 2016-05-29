@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class SecondaryNav extends React.Component {
     constructor(props) {
@@ -8,18 +9,14 @@ class SecondaryNav extends React.Component {
     }
 
     componentDidMount() {
-        document.addEventListener('click', this.showContextualMenu);
+        document.body.addEventListener('click', this.showContextualMenu);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.showContextualMenu);
+        document.body.removeEventListener('click', this.showContextualMenu);
     }
 
     showContextualMenu(e) {
-        console.log('clicked');
-        console.log(e.target);
-
-
         if (e.target.matches('.secondary-nav__control')) {
             return this.setState({open: !this.state.open});
         }
@@ -32,11 +29,11 @@ class SecondaryNav extends React.Component {
     render() {
         return (
             <section className="secondary-nav">
-                <div className={this.state.open ? 'btn btn--square secondary-nav__control is-active' : 'btn btn--square secondary-nav__control'}>
+                <div className={classNames('btn btn--square secondary-nav__control', { 'is-active': this.state.open })}>
                     <span className="fa fa-ellipsis-v"></span>
                 </div>
 
-                <nav className={this.state.open ? 'contextual-menu is-open' : 'contextual-menu'} ref="contextualMenu">
+                <nav className={classNames('contextual-menu', { 'is-open': this.state.open })} ref="contextualMenu">
                     <h5 className="share-buttons__title">
                         Share
                     </h5>
