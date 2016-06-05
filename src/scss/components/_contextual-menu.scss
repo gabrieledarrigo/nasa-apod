@@ -1,0 +1,26 @@
+.contextual-menu {
+    background-color: $white;
+    border: 1px solid $light-gray;
+    box-shadow: 1px 1px 10px rgba(59, 59, 50, 0.1);
+    position: absolute;
+    right: 0;
+    width: 300px;
+    z-index: 2;
+    transform: scale(0, 0);
+    transform-origin: right top;
+    transition: all 0.3s ease-in-out;
+
+    &.is-open {
+        transform: scale(1, 1);
+    }
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        &__item {
+            padding: 15px;
+        }
+    }
+}

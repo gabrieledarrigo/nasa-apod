@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class ErrorMessage extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class ErrorMessage extends React.Component {
 
     render() {
         return (
-            <h3 className={ this.props.show ? 'error-message' : 'error-message hidden' }>
+            <h3 className={ classNames('error-message', { hidden: !this.props.show }) }>
                 { this.props.text }
             </h3>
         );

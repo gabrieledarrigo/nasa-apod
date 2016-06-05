@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class NavBtn extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class NavBtn extends React.Component {
     render() {
         return(
             <div className="nav-menu__btn" ref="navMenuBtn">
-                <span className={ this.props.open ? 'fa fa-close' : 'fa fa-bars' }></span>
+                <span className={classNames('fa', { 'fa-close': this.props.open}, {'fa-bars': !this.props.open })}></span>
             </div>
         );
     }
