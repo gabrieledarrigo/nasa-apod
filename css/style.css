@@ -466,18 +466,19 @@
   background-color: rgba(221, 75, 57, 0.8);
 }
 
-.picture {
+.media {
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
-.picture .picture__content {
+.media__content {
   height: 100%;
+  position: relative;
   width: 100%;
 }
 
-.picture .picture__img {
+.media__img {
   display: block;
   height: auto;
   max-width: 100%;
@@ -485,14 +486,13 @@
   width: 100%;
 }
 
-.video .video__content {
+.media__frame__wrapper {
   height: 100%;
   padding: 0 0 56.25%;
-  position: relative;
   width: 100%;
 }
 
-.video .video__content > .video__iframe {
+.media__frame__wrapper > .media__frame {
   height: 100%;
   left: 0;
   position: absolute;
