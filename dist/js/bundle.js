@@ -35741,7 +35741,7 @@ var DateControl = function (_React$Component) {
 
 exports.default = DateControl;
 
-},{"../models/DateImmutable":259,"./ErrorMessage":248,"react":243,"react-day-picker":55,"react-router":97}],248:[function(require,module,exports){
+},{"../models/DateImmutable":258,"./ErrorMessage":248,"react":243,"react-day-picker":55,"react-router":97}],248:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35926,7 +35926,7 @@ var Header = function (_React$Component) {
 
 exports.default = Header;
 
-},{"./NavBtn":253,"./NavList":254,"react":243,"react-router":97}],251:[function(require,module,exports){
+},{"./NavBtn":254,"./NavList":255,"react":243,"react-router":97}],251:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -35990,13 +35990,80 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _FigCaption = require('./FigCaption');
+
+var _FigCaption2 = _interopRequireDefault(_FigCaption);
+
+var _SecondaryNav = require('./SecondaryNav');
+
+var _SecondaryNav2 = _interopRequireDefault(_SecondaryNav);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Media = function (_React$Component) {
+    _inherits(Media, _React$Component);
+
+    function Media(props) {
+        _classCallCheck(this, Media);
+
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(Media).call(this, props));
+    }
+
+    _createClass(Media, [{
+        key: 'render',
+        value: function render() {
+            var media = this.props.media;
+
+
+            return _react2.default.createElement(
+                'figure',
+                { className: 'media' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'media__content' },
+                    media.media_type === 'video' ? _react2.default.createElement(
+                        'div',
+                        { className: 'media__frame__wrapper' },
+                        _react2.default.createElement('iframe', { className: 'media__frame', src: media.url, frameBorder: '0', allowFullScreen: 'true' })
+                    ) : _react2.default.createElement(
+                        'div',
+                        { className: 'media__image__wrapper' },
+                        _react2.default.createElement('img', { src: media.url, title: media.title, className: 'media__img' })
+                    )
+                ),
+                _react2.default.createElement(_SecondaryNav2.default, null),
+                _react2.default.createElement(_FigCaption2.default, { title: media.title, explanation: media.explanation })
+            );
+        }
+    }]);
+
+    return Media;
+}(_react2.default.Component);
+
+exports.default = Media;
+
+},{"./FigCaption":249,"./SecondaryNav":256,"react":243}],253:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
 var _nasa = require('../services/nasa');
 
 var _nasa2 = _interopRequireDefault(_nasa);
-
-var _MediaTypes = require('../models/MediaTypes');
-
-var _MediaTypes2 = _interopRequireDefault(_MediaTypes);
 
 var _DateImmutable = require('../models/DateImmutable');
 
@@ -36006,13 +36073,9 @@ var _Header = require('./Header');
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Picture = require('./Picture');
+var _Media = require('./Media');
 
-var _Picture2 = _interopRequireDefault(_Picture);
-
-var _Video = require('./Video');
-
-var _Video2 = _interopRequireDefault(_Video);
+var _Media2 = _interopRequireDefault(_Media);
 
 var _LoadingSpinner = require('./LoadingSpinner');
 
@@ -36078,24 +36141,8 @@ var NasaApod = function (_React$Component) {
             });
         }
     }, {
-        key: 'getMediaComponent',
-        value: function getMediaComponent() {
-            var media = this.state.media;
-
-            var type = media.get('media_type');
-            var types = new _MediaTypes2.default({
-                image: _Picture2.default,
-                video: _Video2.default,
-                default: _Picture2.default
-            });
-
-            return types.has(type) ? types.get(type) : types.get('default');
-        }
-    }, {
         key: 'render',
         value: function render() {
-            var Component = this.getMediaComponent();
-
             return _react2.default.createElement(
                 'section',
                 { id: 'nasa-apod' },
@@ -36103,7 +36150,7 @@ var NasaApod = function (_React$Component) {
                 this.state.loading === false ? _react2.default.createElement(
                     'div',
                     { className: 'content' },
-                    _react2.default.createElement(Component, { data: this.state.media })
+                    _react2.default.createElement(_Media2.default, { media: this.state.media })
                 ) : null,
                 _react2.default.createElement(_LoadingSpinner2.default, { loading: this.state.loading })
             );
@@ -36115,7 +36162,7 @@ var NasaApod = function (_React$Component) {
 
 exports.default = NasaApod;
 
-},{"../models/DateImmutable":259,"../models/MediaTypes":261,"../services/nasa":262,"./Header":250,"./LoadingSpinner":251,"./Picture":255,"./Video":257,"react":243}],253:[function(require,module,exports){
+},{"../models/DateImmutable":258,"../services/nasa":260,"./Header":250,"./LoadingSpinner":251,"./Media":252,"react":243}],254:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36165,7 +36212,7 @@ var NavBtn = function (_React$Component) {
 
 exports.default = NavBtn;
 
-},{"classnames":1,"react":243}],254:[function(require,module,exports){
+},{"classnames":1,"react":243}],255:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36223,67 +36270,7 @@ NavList.defaultProps = {
 
 exports.default = NavList;
 
-},{"./DateControl":247,"react":243}],255:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _FigCaption = require('./FigCaption');
-
-var _FigCaption2 = _interopRequireDefault(_FigCaption);
-
-var _SecondaryNav = require('./SecondaryNav');
-
-var _SecondaryNav2 = _interopRequireDefault(_SecondaryNav);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Picture = function (_React$Component) {
-    _inherits(Picture, _React$Component);
-
-    function Picture(props) {
-        _classCallCheck(this, Picture);
-
-        return _possibleConstructorReturn(this, Object.getPrototypeOf(Picture).call(this, props));
-    }
-
-    _createClass(Picture, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'figure',
-                { className: 'picture' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'picture__content' },
-                    _react2.default.createElement('img', { src: this.props.data.url, title: this.props.data.title, className: 'picture__img' })
-                ),
-                _react2.default.createElement(_SecondaryNav2.default, null),
-                _react2.default.createElement(_FigCaption2.default, { title: this.props.data.title, explanation: this.props.data.explanation })
-            );
-        }
-    }]);
-
-    return Picture;
-}(_react2.default.Component);
-
-exports.default = Picture;
-
-},{"./FigCaption":249,"./SecondaryNav":256,"react":243}],256:[function(require,module,exports){
+},{"./DateControl":247,"react":243}],256:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36401,66 +36388,6 @@ exports.default = SecondaryNav;
 },{"classnames":1,"react":243}],257:[function(require,module,exports){
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _FigCaption = require('./FigCaption');
-
-var _FigCaption2 = _interopRequireDefault(_FigCaption);
-
-var _SecondaryNav = require('./SecondaryNav');
-
-var _SecondaryNav2 = _interopRequireDefault(_SecondaryNav);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Video = function (_React$Component) {
-    _inherits(Video, _React$Component);
-
-    function Video(props) {
-        _classCallCheck(this, Video);
-
-        return _possibleConstructorReturn(this, Object.getPrototypeOf(Video).call(this, props));
-    }
-
-    _createClass(Video, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'figure',
-                { className: 'video' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'video__content' },
-                    _react2.default.createElement('iframe', { className: 'video__iframe', src: this.props.data.url, frameBorder: '0', allowFullScreen: 'true' })
-                ),
-                _react2.default.createElement(_SecondaryNav2.default, null),
-                _react2.default.createElement(_FigCaption2.default, { title: this.props.data.title, explanation: this.props.data.explanation })
-            );
-        }
-    }]);
-
-    return Video;
-}(_react2.default.Component);
-
-exports.default = Video;
-
-},{"./FigCaption":249,"./SecondaryNav":256,"react":243}],258:[function(require,module,exports){
-'use strict';
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -36484,7 +36411,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(_reactRouter.Route, { path: '/nasa-apod/date/:date', component: _NasaApod2.default })
 ), document.getElementById('main'));
 
-},{"./components/NasaApod":252,"react":243,"react-dom":67,"react-router":97}],259:[function(require,module,exports){
+},{"./components/NasaApod":253,"react":243,"react-dom":67,"react-router":97}],258:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36564,7 +36491,7 @@ var DateImmutable = function (_Record) {
 
 exports.default = DateImmutable;
 
-},{"immutable":49,"moment":52}],260:[function(require,module,exports){
+},{"immutable":49,"moment":52}],259:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36584,22 +36511,7 @@ exports.default = _immutable2.default.Record({
     media_type: ''
 });
 
-},{"immutable":49}],261:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require('immutable');
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _immutable2.default.Map;
-
-},{"immutable":49}],262:[function(require,module,exports){
+},{"immutable":49}],260:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -36647,7 +36559,7 @@ exports.default = nasa;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../models/DateImmutable":259,"../models/Media":260,"isomorphic-fetch":51}]},{},[258])
+},{"../models/DateImmutable":258,"../models/Media":259,"isomorphic-fetch":51}]},{},[257])
 
 
 //# sourceMappingURL=bundle.js.map

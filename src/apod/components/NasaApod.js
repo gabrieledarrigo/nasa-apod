@@ -1,10 +1,8 @@
 import React from 'react';
 import nasa from '../services/nasa';
-import MediaTypes from '../models/MediaTypes';
 import DateImmutable from '../models/DateImmutable';
 import Header from './Header';
-import Picture from './Picture';
-import Video from './Video';
+import Media from './Media';
 import LoadingSpinner from './LoadingSpinner';
 
 class NasaApod extends React.Component {
@@ -49,33 +47,18 @@ class NasaApod extends React.Component {
             .catch(err => console.err(err));
     }
 
-    getMediaComponent() {
-        const { media } = this.state;
-        const type  = media.get('media_type');
-        const types =  new MediaTypes({
-            image: Picture,
-            video: Video,
-            default: Picture
-        });
-
-        return types.has(type)
-                ? types.get(type)
-                : types.get('default');
-    }
-
 	render() {
-        const Component = this.getMediaComponent();
-
         return (
             <section id="nasa-apod">
                 <Header />
                 {
                     this.state.loading === false
                         ?   <div className="content">
-                                <Component data={ this.state.media } />
+                                <Media media={ this.state.media } />
                             </div>
                         : null
                 }
+
                 <LoadingSpinner loading={ this.state.loading } />
             </section>
         );
