@@ -40,19 +40,7 @@ class SecondaryNav extends React.Component {
 
                     <ul className="contextual-menu__list">
                         <li className="contextual-menu__list__item">
-                            <div className="share-buttons">
-                                <div className="btn share-buttons__element share-buttons__element--facebook">
-                                    <span className="fa fa-facebook"></span>
-                                </div>
-
-                                <div className="btn share-buttons__element share-buttons__element--twitter">
-                                    <span className="fa fa-twitter"></span>
-                                </div>
-
-                                <div className="btn share-buttons__element share-buttons__element--google-pulse">
-                                    <span className="fa fa-google-plus"></span>
-                                </div>
-                            </div>
+                            /* Share buttons */
                         </li>
                     </ul>
                 </nav>
