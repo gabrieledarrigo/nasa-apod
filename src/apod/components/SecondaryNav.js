@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import ShareButtons from './ShareButtons';
 
 class SecondaryNav extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class SecondaryNav extends React.Component {
 
                     <ul className="contextual-menu__list">
                         <li className="contextual-menu__list__item">
-                            /* Share buttons */
+                           <ShareButtons href={window.location.href} text={this.props.text}/>
                         </li>
                     </ul>
                 </nav>

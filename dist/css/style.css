@@ -458,11 +458,11 @@
   background-color: rgba(85, 172, 238, 0.8);
 }
 
-.share-buttons__element--google-pulse {
+.share-buttons__element--google-plus {
   background-color: #dd4b39;
 }
 
-.share-buttons__element--google-pulse:hover {
+.share-buttons__element--google-plus:hover {
   background-color: rgba(221, 75, 57, 0.8);
 }
 

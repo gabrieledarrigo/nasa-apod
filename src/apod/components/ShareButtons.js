@@ -9,6 +9,8 @@ class ShareButtons extends React.Component {
     }
 
     share(url, title) {
+        console.log(this.props);
+
         return function() {
             return window.open(url, title);
         }
@@ -17,15 +19,21 @@ class ShareButtons extends React.Component {
     render() {
         return(
             <div className="share-buttons">
-                <div className="btn share-buttons__element share-buttons__element--facebook" onClick={ this.share(this.props.URIs.getFacebook(this.props.href)) }>
+                <div className="btn share-buttons__element share-buttons__element--facebook" 
+                    onClick={ this.share(this.props.URIs.getFacebook(this.props.href), 'Nasa APOD - Gabriele D\'Arrigo') }>
+
                     <span className="fa fa-facebook"></span>
                 </div>
 
-                <div className="btn share-buttons__element share-buttons__element--twitter" onClick={ this.share(this.props.URIs.getTwitter(this.props.text)) }>
+                <div className="btn share-buttons__element share-buttons__element--twitter" 
+                    onClick={ this.share(this.props.URIs.getTwitter(this.props.text + ' #Nasa #APOD - Gabriele D\'Arrigo'), 'Nasa APOD - Gabriele D\'Arrigo') }>
+                    
                     <span className="fa fa-twitter"></span>
                 </div>
 
-                <div className="btn share-buttons__element share-buttons__element--google-plus" onClick={ this.share(this.props.URIs.getGooglePlus(this.props.href)) }>
+                <div className="btn share-buttons__element share-buttons__element--google-plus" 
+                    onClick={ this.share(this.props.URIs.getGooglePlus(this.props.href), 'Nasa APOD - Gabriele D\'Arrigo') }>
+                    
                     <span className="fa fa-google-plus"></span>
                 </div>
             </div>
