@@ -11,5 +11,5 @@ addons:
     packages:
       - g++-4.8
 after_script:
-  - npm run build
+  - NODE_ENV=production npm run build
   - ./deploy.sh
