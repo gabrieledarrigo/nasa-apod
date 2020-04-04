@@ -1,13 +1,19 @@
 {
-  "name": "apod",
+  "name": "nasa-apod",
   "version": "0.1.0",
+  "description": "A simple application that show the Nasa astronomy picture of the day",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "classnames": "^2.2.6",
+    "immutable": "^4.0.0-rc.12",
+    "moment": "^2.24.0",
     "react": "^16.13.1",
+    "react-day-picker": "^7.4.0",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -16,9 +22,21 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieledarrigo/nasa-apod.git"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "keywords": [
+    "nasa",
+    "astronomy",
+    "picture",
+    "es6"
+  ],
+  "author": "Gabriele D'Arrigo - @acirdesign - darrigo.g@gmail.com",
+  "license": "MIT",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -30,5 +48,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/gabrieledarrigo/nasa-apod/issues"
+  },
+  "homepage": "https://github.com/gabrieledarrigo/nasa-apod#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1"
   }
 }

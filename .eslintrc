@@ -1,0 +1,40 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "global-require": ["off"],
+    "no-param-reassign": ["off"],
+    "max-len": ["off"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.js?(x)"
+        ]
+      }
+    ],
+    "import/prefer-default-export": ["off"],
+    "import/no-dynamic-require": ["off"],
+    "import/no-named-as-default": ["off"],
+    "import/no-unresolved": [
+      "error",
+      {
+        "commonjs": true,
+        "ignore": [
+          "^~static"
+        ]
+      }
+    ],
+		"react/jsx-props-no-spreading": ["off"],
+		"react/jsx-one-expression-per-line": ["off"],
+		"react/no-danger": ["off"],
+    "jsx-a11y/label-has-for": ["off"]
+  },
+  "env": {
+    "jest": true
+  },
+  "globals": {
+    "window": true,
+    "firebase": true
+  }
+}
