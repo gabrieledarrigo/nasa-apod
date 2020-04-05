@@ -2,15 +2,15 @@ import assert from 'assert';
 import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import Header from '../../src/components/Header';
+import TestUtils from 'react-dom/test-utils';
+import Header from '../../components/Header';
 
 describe('HeaderComponent', () => {
   let sandbox; let component; let
     node;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     component = TestUtils.renderIntoDocument(<Header />);
     node = ReactDOM.findDOMNode(component);
   });

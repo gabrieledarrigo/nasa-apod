@@ -2,16 +2,16 @@ import assert from 'assert';
 import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import ShareURIs from '../../src/models/ShareURIs';
-import ShareButtons from '../../src/components/ShareButtons';
+import TestUtils from 'react-dom/test-utils';
+import ShareURIs from '../../models/ShareURIs';
+import ShareButtons from '../../components/ShareButtons';
 
 describe('ShareButtons', () => {
   let sandbox; let component; let node; let openFn; const
     text = 'Share this';
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     openFn = sandbox.stub(window, 'open');
 
     component = TestUtils.renderIntoDocument(<ShareButtons text={text} href={window.location.href} />);

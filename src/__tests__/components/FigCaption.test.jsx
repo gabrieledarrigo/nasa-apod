@@ -1,8 +1,8 @@
 import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import FigCaption from '../../src/components/FigCaption';
+import TestUtils from 'react-dom/test-utils';
+import FigCaption from '../../components/FigCaption';
 
 describe('FigCaptionComponent', () => {
   it('should render a figcaption element with a title and an explanation', () => {

@@ -2,10 +2,10 @@ import assert from 'assert';
 import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import * as Router from 'react-router-dom';
-import DateImmutable from '../../src/models/DateImmutable';
-import DateControl from '../../src/components/DateControl';
+import DateImmutable from '../../models/DateImmutable';
+import DateControl from '../../components/DateControl';
 
 describe('DateControlComponent', () => {
   let sandbox; let component; let node; let event; let
@@ -13,9 +13,9 @@ describe('DateControlComponent', () => {
   Router.history = { push: () => {} };
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     event = { type: 'click' };
-    pushFn = sandbox.stub(Router.history, 'push', () => {});
+    pushFn = sandbox.stub(Router.history, 'push').callsFake(() => {});
     component = TestUtils.renderIntoDocument(<DateControl />);
     node = ReactDOM.findDOMNode(component);
   });

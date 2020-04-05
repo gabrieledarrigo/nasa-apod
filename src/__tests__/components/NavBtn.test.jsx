@@ -1,8 +1,8 @@
 import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import NavBtn from '../../src/components/NavBtn';
+import TestUtils from 'react-dom/test-utils';
+import NavBtn from '../../components/NavBtn';
 
 describe('NavBtnComponent', () => {
   it('should render a button element', () => {

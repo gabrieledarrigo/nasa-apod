@@ -1,13 +1,17 @@
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import classNames from 'classnames';
 
-const ErrorMessage = ({
-  text,
-  show,
-}) => (
-  <h3 className={classNames('error-message', { hidden: !show })}>
-    { text }
-  </h3>
-);
+class ErrorMessage extends React.Component {
+  render() {
+    const { text, show } = this.props;
+
+    return (
+      <h3 className={classNames('error-message', { hidden: !show })}>
+        { text }
+      </h3>
+    );
+  }
+}
 
 export default ErrorMessage;

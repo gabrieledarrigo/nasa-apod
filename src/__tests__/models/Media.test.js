@@ -1,6 +1,6 @@
 import assert from 'assert';
 import data from '../fixtures/response';
-import Media from '../../src/models/Media';
+import Media from '../../models/Media';
 
 describe('Media', () => {
   it('is an immutable object acting as a media entity with a representable url, a title, an explanation and a media_type', () => {

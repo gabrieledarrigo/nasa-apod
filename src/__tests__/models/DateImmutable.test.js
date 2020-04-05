@@ -1,6 +1,6 @@
 import assert from 'assert';
 import moment from 'moment';
-import DateImmutable from '../../src/models/DateImmutable';
+import DateImmutable from '../../models/DateImmutable';
 
 describe('DateImmutable', () => {
   it('is an immutable event object carrying data about when the event occurred and the actual selected date', () => {

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import ShareURIs from '../../src/models/ShareURIs';
+import ShareURIs from '../../models/ShareURIs';
 
 describe('ShareURIs', () => {
   it('is an immutable map that store the different social share uris', () => {

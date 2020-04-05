@@ -31,6 +31,7 @@
     "react/no-danger": ["off"],
     "react/no-render-return-value": ["off"],
     "react/no-find-dom-node": ["off"],
+    "react/jsx-filename-extension": ["off"],
     "jsx-a11y/label-has-for": ["off"]
   },
   "env": {

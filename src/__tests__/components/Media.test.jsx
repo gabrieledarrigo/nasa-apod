@@ -1,8 +1,8 @@
 import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import Media from '../../src/components/Media';
+import TestUtils from 'react-dom/test-utils';
+import Media from '../../components/Media';
 
 describe('MediaComponent', () => {
   it('should render a Media component', () => {

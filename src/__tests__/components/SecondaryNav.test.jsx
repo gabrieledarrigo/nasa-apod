@@ -1,7 +1,7 @@
 import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SecondaryNav from '../../src/components/SecondaryNav';
+import SecondaryNav from '../../components/SecondaryNav';
 
 describe('SecondaryNavComponent', () => {
   let div; let component; let

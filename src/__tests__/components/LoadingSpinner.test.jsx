@@ -1,8 +1,8 @@
 import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import LoadingSpinner from '../../src/components/LoadingSpinner';
+import TestUtils from 'react-dom/test-utils';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 describe('LoadingSpinner', () => {
   it('should show a loading spinner when loading prop is true', () => {

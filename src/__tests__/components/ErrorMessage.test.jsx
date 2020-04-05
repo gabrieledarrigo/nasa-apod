@@ -1,8 +1,8 @@
 import assert from 'assert';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import ErrorMessage from '../../src/components/ErrorMessage';
+import TestUtils from 'react-dom/test-utils';
+import ErrorMessage from '../../components/ErrorMessage';
 
 describe('ErrorMessageComponent', () => {
   it('should render an heading element with the specified error text', () => {

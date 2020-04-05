@@ -2,18 +2,18 @@ import assert from 'assert';
 import sinon from 'sinon';
 import Immutable from 'immutable';
 import data from '../fixtures/response';
-import Media from '../../src/models/Media';
-import DateImmutable from '../../src/models/DateImmutable';
-import nasa from '../../src/services/nasa';
+import Media from '../../models/Media';
+import DateImmutable from '../../models/DateImmutable';
+import nasa from '../../services/nasa';
 
 describe('NasaService', () => {
   let sandbox; let response; let fetchFn; let
     fetch;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
 
-    fetchFn = (stubber, cb) => stubber.stub(global, 'fetch', () => new Promise(cb));
+    fetchFn = (stubber, cb) => stubber.stub(global, 'fetch').callsFake(() => new Promise(cb));
 
     response = {
       status: 200,
