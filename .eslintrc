@@ -25,9 +25,12 @@
         ]
       }
     ],
+    "react/prop-types": ["off"],
 		"react/jsx-props-no-spreading": ["off"],
 		"react/jsx-one-expression-per-line": ["off"],
-		"react/no-danger": ["off"],
+    "react/no-danger": ["off"],
+    "react/no-render-return-value": ["off"],
+    "react/no-find-dom-node": ["off"],
     "jsx-a11y/label-has-for": ["off"]
   },
   "env": {

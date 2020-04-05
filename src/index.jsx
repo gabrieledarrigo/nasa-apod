@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './index.scss';
-import App from './App';
+import './scss/style.scss';
+import NasaApod from './components/NasaApod';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Route
-        path="/"
-        component={NasaApod}
-      />
       <Route
         path="/:date"
         component={NasaApod}
