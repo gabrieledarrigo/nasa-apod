@@ -10,27 +10,28 @@ Tinkered with:
 - [Nasa APOD API](https://api.nasa.gov/api.html#apod)
 - [React.js](https://facebook.github.io/react/) to handle view logic and interaction
 - [Immutable.js](https://facebook.github.io/immutable-js/) to define immutable domain objects
-- [Moment.js]() to work with date (you know dude, Javascript's date API are horrible!)
+- [Moment.js](https://momentjs.com/) to work with dates
 
 ### Show me the app please!
 
-Just browse to [http://gabrieledarrigo.github.io/nasa-apod/](http://gabrieledarrigo.github.io/nasa-apod/)
+Just browse to [https://nasa-apod.gabrieledarrigo.now.sh/](https://nasa-apod.gabrieledarrigo.now.sh/)
 
 ### Installation and run
-Clone the repository, than install all application's dependencies:
 
-  $ npm install
+Clone the repository, than install all application's dependencies:  
 
-Launch all unit tests with:
+```
+$ npm install
+```
 
-	$ npm run test
+Launch all unit tests with:  
 
-Run the application:
+```
+$ npm run test
+```
 
-	$ npm run serve
+Run the application:  
 
-### What's next?
-- Social button to share the photo.
-- Browse past photos with keyboard arrows.
-- Browse past photos with touch gestures (like in a carousel)
-- Conquer the world.
+```
+$ npm run serve
+```
