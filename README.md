@@ -19,7 +19,7 @@ Just browse to [http://gabrieledarrigo.github.io/nasa-apod/](http://gabrieledarr
 ### Installation and run
 Clone the repository, than install all application's dependencies:
 
-    $ npm install
+  $ npm install
 
 Launch all unit tests with:
 
