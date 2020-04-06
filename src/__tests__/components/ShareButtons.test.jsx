@@ -36,7 +36,7 @@ describe('ShareButtons', () => {
 
     TestUtils.Simulate.click(node.querySelector('.share-buttons__element--twitter'));
     assert.equal(openFn.callCount, 2);
-    assert.equal(openFn.calledWith(`${Map.get('twitter')}${text}`, 'Nasa APOD - Gabriele D\'Arrigo'), true);
+    assert.equal(openFn.calledWith(`${Map.get('twitter')}${window.location.href}`, 'Nasa APOD - Gabriele D\'Arrigo'), true);
 
     TestUtils.Simulate.click(node.querySelector('.share-buttons__element--google-plus'));
     assert.equal(openFn.callCount, 3);

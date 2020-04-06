@@ -8,7 +8,6 @@ class SecondaryNav extends React.Component {
     super(props);
     this.state = { open: false };
     this.contextualMenu = React.createRef();
-    this.showContextualMenu = this.showContextualMenu.bind(this);
   }
 
   componentDidMount() {
@@ -20,7 +19,7 @@ class SecondaryNav extends React.Component {
   }
 
   // eslint-disable-next-line consistent-return
-  showContextualMenu(e) {
+  showContextualMenu = (e) => {
     const { open } = this.state;
 
     if (e.target.matches('.secondary-nav__control')) {
@@ -28,7 +27,7 @@ class SecondaryNav extends React.Component {
     }
 
     // eslint-disable-next-line react/no-string-refs
-    if (open && !this.contextualMenu.contains(e.target)) {
+    if (open && !this.contextualMenu.current.contains(e.target)) {
       return this.setState(() => ({ open: false }));
     }
   }
@@ -43,14 +42,20 @@ class SecondaryNav extends React.Component {
           <span className="fa fa-ellipsis-v" />
         </div>
 
-        <nav className={classNames('contextual-menu', { 'is-open': open })} ref={this.contextualMenu}>
+        <nav
+          className={classNames('contextual-menu', { 'is-open': open })}
+          ref={this.contextualMenu}
+        >
           <h5 className="share-buttons__title">
             Share
           </h5>
 
           <ul className="contextual-menu__list">
             <li className="contextual-menu__list__item">
-              <ShareButtons href={window.location.href} text={text} />
+              <ShareButtons
+                href={window.location.href}
+                text={text}
+              />
             </li>
           </ul>
         </nav>

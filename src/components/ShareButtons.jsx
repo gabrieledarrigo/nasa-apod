@@ -4,11 +4,6 @@ import { inject } from '../utils/high-order-components';
 import ShareURIs from '../models/ShareURIs';
 
 class ShareButtons extends React.Component {
-  constructor(props) {
-    super(props);
-    this.share = this.share.bind(this);
-  }
-
   share = (url, title) => () => window.open(url, title)
 
   render() {

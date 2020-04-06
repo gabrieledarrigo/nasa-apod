@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 import SecondaryNav from '../../components/SecondaryNav';
 
 describe('SecondaryNavComponent', () => {
-  let div; let component; let
-    node;
+  let div;
+  let component;
+  let node;
 
   beforeEach(() => {
     // Render SecondaryNavComponent directly into DOM to test document.addEventListener
