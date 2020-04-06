@@ -1,15 +1,8 @@
 language: node_js
-env:
-  - CXX=g++-4.8
 node_js:
-  - "6.0"
-sudo: false
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-after_script:
-  - NODE_ENV=production npm run build
-  - ./deploy.sh
+  - "lts/*"
+cache: npm
+script:
+  - npm run lint
+  - npm run test -- --coverage --watchAll=false
+  - npm run build
