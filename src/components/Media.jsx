@@ -18,7 +18,7 @@ class Media extends React.Component {
                   className="media__frame"
                   src={media.url}
                   frameBorder="0"
-                  allowFullScreen="true"
+                  allowFullScreen
                 />
               </div>
             )

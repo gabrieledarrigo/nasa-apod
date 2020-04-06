@@ -3,20 +3,25 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-dom/test-utils';
-import * as Router from 'react-router-dom';
 import DateImmutable from '../../models/DateImmutable';
-import DateControl from '../../components/DateControl';
+import { DateControl } from '../../components/DateControl';
 
 describe('DateControlComponent', () => {
-  let sandbox; let component; let node; let event; let
-    pushFn;
-  Router.history = { push: () => {} };
+  let sandbox;
+  let component;
+  let node;
+  let event;
+  let pushFn;
+
+  const history = {
+    push: () => {},
+  };
 
   beforeEach(() => {
     sandbox = sinon.createSandbox();
     event = { type: 'click' };
-    pushFn = sandbox.stub(Router.history, 'push').callsFake(() => {});
-    component = TestUtils.renderIntoDocument(<DateControl />);
+    pushFn = sandbox.stub(history, 'push').callsFake(() => {});
+    component = TestUtils.renderIntoDocument(<DateControl history={history} />);
     node = ReactDOM.findDOMNode(component);
   });
 
@@ -35,7 +40,7 @@ describe('DateControlComponent', () => {
     TestUtils.Simulate.click(day, event);
 
     assert.equal(pushFn.callCount, 1);
-    assert.equal(pushFn.calledWith(`/nasa-apod/date/${DateImmutable.format(DateImmutable.today())}`), true);
+    assert.equal(pushFn.calledWith(`/${DateImmutable.format(DateImmutable.today())}`), true);
   });
 
   it('should not change the url with the related if the user click on a day that comes after today', () => {

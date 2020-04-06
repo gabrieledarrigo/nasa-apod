@@ -9,7 +9,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Route
-        path="/:date"
+        path="/:date?"
         component={NasaApod}
       />
     </Router>

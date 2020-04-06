@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-dom/test-utils';
+import * as Router from 'react-router-dom';
 import Header from '../../components/Header';
 
 describe('HeaderComponent', () => {
@@ -11,7 +12,16 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     sandbox = sinon.createSandbox();
-    component = TestUtils.renderIntoDocument(<Header />);
+
+
+    sinon.stub(Router, 'withRouter').callsFake((comp) => comp);
+
+    component = TestUtils.renderIntoDocument(
+      <Router.MemoryRouter>
+        <Header />,
+      </Router.MemoryRouter>,
+    );
+
     node = ReactDOM.findDOMNode(component);
   });
 
@@ -25,14 +35,15 @@ describe('HeaderComponent', () => {
 
   it('should open / close when user click one of ["nav-menu__btn", "nav-menu__list", "DayPicker-Day"] element', () => {
     const event = { type: 'click' };
+    const header = TestUtils.findRenderedComponentWithType(component, Header);
 
     TestUtils.Simulate.click(node.querySelector('.nav-menu__btn'), event);
-    assert.equal(component.state.open, true);
+    assert.equal(header.state.open, true);
 
     TestUtils.Simulate.click(node.querySelector('.nav-menu__list'), event);
-    assert.equal(component.state.open, false);
+    assert.equal(header.state.open, false);
 
     TestUtils.Simulate.click(node.querySelector('.DayPicker-Day'), event);
-    assert.equal(component.state.open, true);
+    assert.equal(header.state.open, true);
   });
 });

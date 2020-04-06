@@ -4,7 +4,7 @@ import DayPicker from 'react-day-picker';
 import DateImmutable from '../models/DateImmutable';
 import ErrorMessage from './ErrorMessage';
 
-class DateControl extends React.Component {
+export class DateControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
