@@ -11,7 +11,7 @@
     "immutable": "4.0.0-rc.12",
     "isomorphic-fetch": "2.2.1",
     "moment": "2.24.0",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-day-picker": "7.4.0",
